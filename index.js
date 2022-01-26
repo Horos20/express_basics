@@ -9,9 +9,12 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.set('view engine', 'ejs');
 
-app.get('/user/:username', (req, res)=> {
-    let user = req.params.username;
-    res.render('index.ejs', {username: user});
+app.get('/questions', (req, res)=> {
+    let questions = [
+        {title: "What is node.js", user:'Kadi', votes: '10'},
+        {title: "What is express.js", user:'Mike', votes: '8'}
+    ]
+    res.render('index', {questions: questions});
 });
 
 app.listen(3000, ()=> {
